@@ -16,9 +16,10 @@ dependencies {
     implementation "org.springframework:spring-webmvc:${versions.springframework}"
     implementation "org.springframework.data:spring-data-jpa:${versions.springData}"
 
-    compileOnly "jakarta.servlet:jakarta.servlet-api:${versions.jakartaServlet}"
+    providedCompile "jakarta.servlet:jakarta.servlet-api:${versions.jakartaServlet}"
     implementation "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}"
 
+    implementation 'com.zaxxer:HikariCP:6.0.0'
     implementation "com.mysql:mysql-connector-j:${versions.mysql}"
     implementation "org.hibernate.orm:hibernate-core:${versions.hibernate}"
     implementation "org.liquibase:liquibase-core:${versions.liquibase}"
@@ -29,8 +30,9 @@ dependencies {
     compileOnly "org.projectlombok:lombok:${versions.lombok}"
     annotationProcessor "org.projectlombok:lombok:${versions.lombok}"
 
-    implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api:3.0.0'
-    implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:3.0.1'
+    implementation 'org.mapstruct:mapstruct:1.6.2'
+
+    //p6spy
 }
 
 test {
