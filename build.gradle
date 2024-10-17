@@ -24,13 +24,13 @@ dependencies {
     implementation "org.hibernate.orm:hibernate-core:${versions.hibernate}"
     implementation "org.liquibase:liquibase-core:${versions.liquibase}"
 
-    implementation "org.thymeleaf:thymeleaf:${versions.thymeleaf}"
     implementation "org.thymeleaf:thymeleaf-spring6:${versions.thymeleaf}"
 
     compileOnly "org.projectlombok:lombok:${versions.lombok}"
     annotationProcessor "org.projectlombok:lombok:${versions.lombok}"
 
     implementation 'org.mapstruct:mapstruct:1.6.2'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'
 
     //p6spy
 }

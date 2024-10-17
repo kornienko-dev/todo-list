@@ -37,17 +37,19 @@ public class TaskController {
     }
 
     @PostMapping("/{id}")
-    public void update(Model model,
+    public String update(Model model,
                          @PathVariable Integer id,
                          @RequestBody TaskCreateEditDto task) {
-        taskService.update(id, task)
+        return taskService.update(id, task)
+                .map(taskDto -> "redirect:/tasks")
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
-    public void create(Model model,
+    public String create(Model model,
                          @RequestBody TaskCreateEditDto task) {
         taskService.create(task);
+        return "redirect:/tasks";
     }
 
     @DeleteMapping("/{id}")
