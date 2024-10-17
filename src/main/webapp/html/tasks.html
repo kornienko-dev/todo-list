@@ -17,17 +17,37 @@
     </tr>
     </thead>
     <tbody>
-        <tr th:each="task,number : ${tasks.content}">
-            <td th:text="${task.id}"></td>
-            <td th:text="${task.description}" th:id="'description' + ${task.id}"></td>
-            <td th:text="${task.status}" th:id="'status' + ${task.id}"></td>
-            <td>
-                <button th:id="'edit' + ${task.id}" th:onclick="'editTask(' + ${task.id} + ')'">Edit</button>
-            </td>
-            <td>
-                <button th:id="'delete' + ${task.id}" th:onclick="'deleteTask(' + ${task.id} + ')'">Delete</button>
-            </td>
-        </tr>
+    <tr th:each="task,number : ${tasks.content}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.description}" th:id="'description' + ${task.id}"></td>
+        <td th:text="${task.status}" th:id="'status' + ${task.id}"></td>
+        <td>
+            <button th:id="'edit' + ${task.id}" th:onclick="'editTask(' + ${task.id} + ')'">Edit</button>
+        </td>
+        <td>
+            <button th:id="'delete' + ${task.id}" th:onclick="'deleteTask(' + ${task.id} + ')'">Delete</button>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" class="text_bold">Add new task:</td>
+    </tr>
+    <tr>
+        <td>-</td>
+        <td>
+            <input id="postDescription" type="text" value="">
+        </td>
+        <td>
+            <label for="postStatus"></label>
+            <select id="postStatus">
+                <option value="IN_PROGRESS">IN_PROGRESS</option>
+                <option value="DONE">DONE</option>
+                <option value="PAUSED">PAUSED</option>
+            </select>
+        </td>
+        <td>
+            <button id="postSave" onclick="addTask()">Save</button>
+        </td>
+    </tr>
     </tbody>
 </table>
 <h2>

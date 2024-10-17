@@ -66,3 +66,22 @@ function updateTask(taskId) {
 
     setTimeout(() => document.location.reload(), 300);
 }
+
+function addTask() {
+    let descriptionValue = $("#postDescription").val();
+    let statusValue = $("#postStatus").val();
+
+    $.ajax({
+        url: "/",
+        type: 'POST',
+        dataType: 'json',
+        contentType: 'application/json;charset=UTF-8',
+        async: false,
+        data: JSON.stringify({
+            "description": descriptionValue,
+            "status": statusValue
+        })
+    });
+
+    setTimeout(() => document.location.reload(), 300);
+}
