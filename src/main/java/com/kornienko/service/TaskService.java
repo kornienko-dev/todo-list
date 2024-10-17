@@ -1,7 +1,6 @@
 package com.kornienko.service;
 
 import com.kornienko.dao.TaskDao;
-import com.kornienko.domain.Task;
 import com.kornienko.dto.TaskCreateEditDto;
 import com.kornienko.dto.TaskReadDto;
 import com.kornienko.mapper.TaskCreateEditMapper;
@@ -12,7 +11,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,10 +24,6 @@ public class TaskService {
 
     public Page<TaskReadDto> findAll(Pageable pageable) {
         return taskDao.findAll(pageable).map(taskReadMapper::map);
-    }
-
-    public int count() {
-        return Math.toIntExact(taskDao.count());
     }
 
     @Transactional

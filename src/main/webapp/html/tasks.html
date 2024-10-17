@@ -19,8 +19,8 @@
     <tbody>
     <tr th:each="task,number : ${tasks.content}">
         <td th:text="${task.id}"></td>
-        <td th:text="${task.description}" th:id="'description' + ${task.id}"></td>
-        <td th:text="${task.status}" th:id="'status' + ${task.id}"></td>
+        <td th:id="'description' + ${task.id}" th:text="${task.description}"></td>
+        <td th:id="'status' + ${task.id}" th:text="${task.status}"></td>
         <td>
             <button th:id="'edit' + ${task.id}" th:onclick="'editTask(' + ${task.id} + ')'">Edit</button>
         </td>
@@ -29,7 +29,7 @@
         </td>
     </tr>
     <tr>
-        <td colspan="3" class="text_bold">Add new task:</td>
+        <td class="text_bold" colspan="3">Add new task:</td>
     </tr>
     <tr>
         <td>-</td>
@@ -51,9 +51,9 @@
     </tbody>
 </table>
 <h2>
-    <button th:each="pageNumber : ${pageNumbers}" class="button_page">
-        <a th:href="@{/(page=${pageNumber})}" th:text="${pageNumber + 1}"
-           th:classappend="${pageNumber == tasks.getNumber() ? 'active_page' : ''}"></a>
+    <button class="button_page" th:each="pageNumber : ${pageNumbers}">
+        <a th:classappend="${pageNumber == tasks.getNumber() ? 'active_page' : ''}" th:href="@{/(page=${pageNumber})}"
+           th:text="${pageNumber + 1}"></a>
     </button>
 </h2>
 </body>

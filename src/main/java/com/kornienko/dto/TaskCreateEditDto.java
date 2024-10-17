@@ -3,10 +3,8 @@ package com.kornienko.dto;
 import com.kornienko.domain.Status;
 import com.kornienko.domain.Task;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Value;
 
 import java.io.Serializable;
 
