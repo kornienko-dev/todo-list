@@ -1,6 +1,9 @@
 plugins {
     id 'java'
+    id 'war'
 }
+
+apply from: 'version.gradle'
 
 group = 'com.kornienko'
 version = '1.0-SNAPSHOT'
@@ -10,6 +13,26 @@ repositories {
 }
 
 dependencies {
+    implementation "org.springframework:spring-webmvc:${versions.springframework}"
+    implementation "org.springframework.data:spring-data-jpa:${versions.springData}"
+
+    providedCompile "jakarta.servlet:jakarta.servlet-api:${versions.jakartaServlet}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}"
+
+    implementation 'com.zaxxer:HikariCP:6.0.0'
+    implementation "com.mysql:mysql-connector-j:${versions.mysql}"
+    implementation "org.hibernate.orm:hibernate-core:${versions.hibernate}"
+    implementation "org.liquibase:liquibase-core:${versions.liquibase}"
+
+    implementation "org.thymeleaf:thymeleaf-spring6:${versions.thymeleaf}"
+
+    compileOnly "org.projectlombok:lombok:${versions.lombok}"
+    annotationProcessor "org.projectlombok:lombok:${versions.lombok}"
+
+    implementation 'org.mapstruct:mapstruct:1.6.2'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'
+
+    //p6spy
 }
 
 test {
