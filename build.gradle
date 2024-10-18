@@ -19,7 +19,7 @@ dependencies {
     providedCompile "jakarta.servlet:jakarta.servlet-api:${versions.jakartaServlet}"
     implementation "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}"
 
-    implementation 'com.zaxxer:HikariCP:6.0.0'
+    implementation "com.zaxxer:HikariCP:${versions.hikari}"
     implementation "com.mysql:mysql-connector-j:${versions.mysql}"
     implementation "org.hibernate.orm:hibernate-core:${versions.hibernate}"
     implementation "org.liquibase:liquibase-core:${versions.liquibase}"
@@ -29,10 +29,8 @@ dependencies {
     compileOnly "org.projectlombok:lombok:${versions.lombok}"
     annotationProcessor "org.projectlombok:lombok:${versions.lombok}"
 
-    implementation 'org.mapstruct:mapstruct:1.6.2'
-    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.2'
-
-    //p6spy
+    implementation "org.mapstruct:mapstruct:${versions.mapstruct}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${versions.mapstruct}"
 }
 
 test {
