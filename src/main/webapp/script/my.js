@@ -1,5 +1,5 @@
 function deleteTask(taskId) {
-    let url = "/" + taskId;
+    let url = getBaseUrl() + taskId;
     $.ajax({
         url: url,
         type: 'DELETE',
@@ -47,7 +47,7 @@ function editTask(taskId) {
 }
 
 function updateTask(taskId) {
-    let url = "/" + taskId;
+    let url = getBaseUrl() + taskId;
 
     let descriptionValue = $("#inputDescription" + taskId).val();
     let statusValue = $("#selectStatus" + taskId).val();
@@ -72,7 +72,7 @@ function addTask() {
     let statusValue = $("#postStatus").val();
 
     $.ajax({
-        url: "/",
+        url: getBaseUrl(),
         type: 'POST',
         dataType: 'json',
         contentType: 'application/json;charset=UTF-8',
@@ -84,4 +84,10 @@ function addTask() {
     });
 
     setTimeout(() => document.location.reload(), 300);
+}
+
+function getBaseUrl() {
+    let currentPath = window.location.href;
+    let endPosition = currentPath.indexOf('?');
+    return currentPath.substring(0, endPosition);
 }

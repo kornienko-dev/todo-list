@@ -1,6 +1,5 @@
 package com.kornienko.config;
 
-import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.cfg.JdbcSettings;
 import org.springframework.context.annotation.Bean;
@@ -24,9 +23,9 @@ import java.util.Properties;
 public class DatabaseConfiguration {
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setDataSource(dataSource());
+        factoryBean.setDataSource(dataSource);
         factoryBean.setPackagesToScan("com.kornienko.domain");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -34,19 +33,6 @@ public class DatabaseConfiguration {
         factoryBean.setJpaProperties(hibernateProperties());
 
         return factoryBean;
-    }
-
-    @Bean
-    public DataSource dataSource() {
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/todo" +
-                              "?createDatabaseIfNotExist=true" +
-                              "&serverTimezone=UTC" +
-                              "&characterEncoding=UTF-8");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
-        return dataSource;
     }
 
     @Bean

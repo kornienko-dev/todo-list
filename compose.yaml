@@ -6,6 +6,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      - "SPRING_PROFILES_ACTIVE=container"
   db:
     image: mysql:9.1.0
     environment:
