@@ -3,9 +3,7 @@ package com.kornienko.config;
 import com.zaxxer.hikari.HikariDataSource;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.cfg.JdbcSettings;
-import org.hibernate.cfg.SchemaToolingSettings;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -42,7 +40,10 @@ public class DatabaseConfiguration {
     public DataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/todo?serverTimezone=UTC&characterEncoding=UTF-8");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/todo" +
+                              "?createDatabaseIfNotExist=true" +
+                              "&serverTimezone=UTC" +
+                              "&characterEncoding=UTF-8");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         return dataSource;
@@ -57,7 +58,6 @@ public class DatabaseConfiguration {
 
     private Properties hibernateProperties() {
         Properties properties = new Properties();
-        properties.put(SchemaToolingSettings.HBM2DDL_AUTO, "validate");
         properties.put(JdbcSettings.SHOW_SQL, "true");
         properties.put(JdbcSettings.FORMAT_SQL, "true");
         properties.put(JdbcSettings.HIGHLIGHT_SQL, "true");
