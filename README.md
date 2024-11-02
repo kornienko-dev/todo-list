@@ -4,6 +4,7 @@
 ![MySQL](https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=bbae79)
 ![Liquibase](https://img.shields.io/badge/liquibase-2962FF.svg?style=for-the-badge&logo=liquibase&logoColor=white)
+![JUnit](https://img.shields.io/badge/junit%205-25A162.svg?style=for-the-badge&logo=junit5&logoColor=dc514a)
 ![Docker](https://img.shields.io/badge/docker-2496ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![gradle](https://img.shields.io/badge/gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
 
