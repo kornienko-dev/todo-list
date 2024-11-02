@@ -11,6 +11,7 @@ ext {
             'thymeleaf'      : '3.1.2.RELEASE',
             'lombok'         : '1.18.34',
             'mapstruct'      : '1.6.2',
-            'junit'          : '5.11.3'
+            'junit'          : '5.11.3',
+            'hamcrest'          : '2.2'
     ]
 }

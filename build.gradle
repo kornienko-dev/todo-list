@@ -28,12 +28,15 @@ dependencies {
 
     compileOnly "org.projectlombok:lombok:${versions.lombok}"
     annotationProcessor "org.projectlombok:lombok:${versions.lombok}"
+    testCompileOnly "org.projectlombok:lombok:${versions.lombok}"
+    testAnnotationProcessor "org.projectlombok:lombok:${versions.lombok}"
 
     implementation "org.mapstruct:mapstruct:${versions.mapstruct}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${versions.mapstruct}"
 
     testImplementation "org.junit.jupiter:junit-jupiter-api:${versions.junit}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${versions.junit}"
+    testImplementation "org.hamcrest:hamcrest:${versions.hamcrest}"
     testImplementation "org.springframework:spring-test:${versions.springframework}"
 }
 
